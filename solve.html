@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Mort-Gauge</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/al92custom.css">
+  </head>
+  <body>
+      <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #ff993b;">
+          <a class="navbar-brand" href="#">Mort-Gauge</a>
+          <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+              aria-expanded="false" aria-label="Toggle navigation"></button>
+          <div class="collapse navbar-collapse" id="collapsibleNavId">
+              <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link active" href="solve.html">Solve</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="code.html">Code</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  href="https://github.com/alandres92/Sunset-Hills-2021" target="_blank" >GitHub</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://aldens-devfolio.netlify.app/" target="_blank">Portfolio</a>
+                    </li>
+                    
+                    </li>
+                </ul>
+                
+            </div>
+        </nav>
+
+    <!--Body Starts here-->
+    <div class= "container-fluid container">
+        <img src="/img/PlaceHolderImg.png" class="responsive center" >
+        <div class="rev-styleB">
+            <h2 class="center">Mortgage Loan Calculator</h2>
+        <p>
+            <h6 class="center">This tool is made to calculate your mortgage loan!</h6>
+        </div>
+        <div id="loanSrc">  <!-- loan form here-->
+            <form name="loanForm" class= "rev-styleB">
+                <table class="center"> 
+                    <tr>
+                        <td>Loan Amount:</td>
+                        <td><input type="text" id="loanAmt" size="10" value="a"></td>
+                    </tr>
+                    <tr>
+                        <td>Number of Months:</td>
+                        <td><input type="text" id="months" size="10" value="a"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Annual Interest Rate:</td>
+                        <td><input placeholder="4.5%" type="text" id="rate" size="10" value="a"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Extra Monthly Payment:</td>
+                        <td><input type="text" id="extra" size="10" value="a"></td>
+                    </tr>
+                    <td><br></td>
+                    <tr>
+                        
+                        <td><input type="button" onclick="validate()" class="btn-success btn-lg" value="Calculate"></td>
+                        <td><input type="button" onclick="startOver()" class="btn-danger btn-lg" value="Start Over"></td>
+                    </tr>
+
+                </table>
+            </form>
+        </div>
+        <div class= "rev-style" id="loanInfo"> <!-- display loan info-->
+            loan info
+
+        </div>
+
+        <div class= "rev-styleB" id="tHead"> <!--table begins here-->
+            table header
+        </div>
+        <div class= "rev-style" id="table">
+            table
+        </div>
+
+
+
+    </div>
+
+        
+
+    <!-- Optional JavaScript -->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="js/loan.js"></script>
+
+
+
+
+
+  </body>
+</html>

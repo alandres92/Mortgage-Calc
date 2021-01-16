@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>SSH Code</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/al92custom.css">  
+    <link rel="stylesheet" href="/css/prism.css"> 
+
+  </head>
+  <body>
+      <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #ff993b;">
+          <a class="navbar-brand" href="index.html">Sunset Hills</a>
+          <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+              aria-expanded="false" aria-label="Toggle navigation"></button>
+          <div class="collapse navbar-collapse" id="collapsibleNavId">
+              <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link" href="solve.html">Solve </a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="code.html">Code <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  href="https://github.com/alandres92/Sunset-Hills-2021" target="_blank" >GitHub</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://aldens-devfolio.netlify.app/" target="_blank">Portfolio</a>
+                    </li>
+                    
+                    </li>
+                </ul>
+                
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div>
+                    <pre>
+                        <code class="language-javascript line-numbers">
+                            function Sunset(...buildings) {
+                                // First building can always see sunset   
+                                let results = ['See'];
+                                // For each building (excluding the first one)
+                                for (let loop = 1; loop < buildings.length; loop++) {
+                                    // assume no building is bigger
+                                    let bigger = false;
+                                    // Check if any building before it is larger
+                                    for (let loop2 = 0; loop2 < loop; loop2++) { 
+                                        // previous greater than current?
+                                        if (buildings[loop2] >= buildings[loop]) { 
+                                            // If previous building is bigger
+                                            bigger = true; 
+                                            // stop checking if bigger is found
+                                            break; 
+                                        } else {
+                                            // If previous building is smaller, check next
+                                            continue;
+                                        }
+                                    }
+                                    // If there's a bigger building we're blind, otherwise we can see
+                                    bigger ? results.push("Blind") : results.push("See");
+                                }
+                                // How many can see?
+                                let see = results.filter(x => x == 'See').length;
+                                results.push(see);
+                                document.getElementById("seeResult").innerText = results;
+                                // How many are blind?
+                                let blind = results.filter(x => x == 'Blind').length;
+                                results.push(blind);
+                                document.getElementById("notSeeResult").innerText = results;
+                            
+                                ColorBuildings(results);
+                            }
+                            
+                            function BuildIt(input, sky) {
+                                let stories = parseInt(input.value);
+                                sky.animate([
+                                    // keyframes
+                                    { height: sky.style.height },
+                                    { height: (stories * 5).toString() + "px" }
+                                ], {
+                                    // timing options
+                                    duration: 1000,
+                                    fill: 'forwards',
+                                    easing: "ease-in-out"
+                                });
+                            }
+                            
+                            function Demolish() {
+                            
+                                let b1 = document.getElementById('b1');
+                                let b2 = document.getElementById('b2');
+                                let b3 = document.getElementById('b3');
+                                let b4 = document.getElementById('b4');
+                                let b5 = document.getElementById('b5');
+                                let sky1 = document.getElementById("sky1");
+                                let sky2 = document.getElementById("sky2");
+                                let sky3 = document.getElementById("sky3");
+                                let sky4 = document.getElementById("sky4");
+                                let sky5 = document.getElementById("sky5");
+                            
+                                b1.value = 1;
+                                sky1.setAttribute("class", "skyscraper gray");
+                                BuildIt(b1, sky1);
+                            
+                                b2.value = 1;
+                                sky2.setAttribute("class", "skyscraper gray");
+                                BuildIt(b1, sky2);
+                            
+                                b3.value = 1;
+                                sky3.setAttribute("class", "skyscraper gray");
+                                BuildIt(b1, sky3);
+                            
+                                b4.value = 1;
+                                sky4.setAttribute("class", "skyscraper gray");
+                                BuildIt(b1, sky4);
+                            
+                                b5.value = 1;
+                                sky5.setAttribute("class", "skyscraper gray");
+                                BuildIt(b1, sky5);
+                            
+                                document.getElementById("result").innerText = '';
+                                document.getElementById('b1').focus();
+                            }
+                            
+                            function ColorBuildings(results) {
+                                for (let i = 1; i <= 5; i++) {
+                                    let e = document.getElementById("sky" + i.toString());
+                                    if (results[i-1] == "See") {
+                                        e.setAttribute("class", "skyscraper blue");
+                                    } else {
+                                        e.setAttribute("class", "skyscraper gray");
+                                    }
+                                }
+                            }
+                          
+                        
+                        </code>
+                    </pre>
+
+                </div>
+            </div>
+        </div>
+
+        
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="js/prism.js"></script>  
+</body>
+</html>
