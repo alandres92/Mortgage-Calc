@@ -155,7 +155,7 @@ img{
 .input-group {
     margin-bottom: 30px;
 }
-
+body {text-align: center;}
 #container {
 	width: 650px;
 	height: auto;
@@ -185,13 +185,24 @@ img{
 	clear:both;
 	width: 600px;
 	height: 50px;
-	border: black;
+	border: #EA7B00;
+	font-size: large;
+	color: #EA7B00;
+	
+}
+
+#tHeadText{
+	padding: 15;
+	border: 1;
+	text-align: center;
+	font-weight: bold;
+	border: #EA7B00;
 }
 
 #table {
 	overflow:auto;
 	width: 600px;
-	height: 200;
+	height: 200px;
 	margin: 10px;
 }
 

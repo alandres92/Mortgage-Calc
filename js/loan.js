@@ -77,6 +77,69 @@ function calculate(loanAmt, months, rate, extra) {
 
     document.getElementById("loanInfo").innerHTML = info; //info is a string containing all the HTML table code
 
+
+    //
+
+    let table="";
+
+    table +="";
+    
+        table += "<tr>";
+            table += "<td width='30'>0</td>";
+            table += "<td width='60'></td>";
+            table += "<td width='60'></td>";
+            table += "<td width='60'></td>";
+            table += "<td width='85'></td>";
+            table += "<td width='70'>"+round(loanAmt,2)+"</td>";
+        table += "</tr>";
+        
+        let currentBalance = loanAmt;
+        let paymentCount = 1;
+        let totalInt = 0;
+        monthPay = monthPay + extra;
+        while(currentBalance > 0) {
+            //create rows
+
+            
+            
+            towardsInt = (i/12)*currentBalance;  //this calcs the portion of your monthly payment that goes towards interest
+
+            if (monthPay > currentBalance) {
+                monthPay = currentBalance + towardsInt;
+            }    
+        
+            towardsBal = monthPay - towardsInt;
+            totalInt = totalInt + towardsInt;
+            currentBalance = currentBalance - towardsBal;
+
+            //display row
+            table += "<tr>";
+                table += "<td>"+paymentCount+"</td>";
+                table += "<td>"+round(monthPay,2)+"</td>";
+                table += "<td>"+round(towardsBal,2)+"</td>";
+                table += "<td>"+round(towardsInt,2)+"</td>";
+                table += "<td>"+round(totalInt,2)+"</td>";
+                table += "<td>"+round(currentBalance,2)+"</td>";
+            table += "</tr>";
+
+
+
+
+
+            paymentCount++;
+        }
+
+
+
+
+
+
+
+    table += "</table>";
+
+    document.getElementById("table").innerHTML = table;
+
+
 }
 
 
@@ -85,3 +148,6 @@ function round(num, dec) {
     return (Math.round(num*Math.pow(10,dec))/ Math.pow(10,dec)).toFixed(dec);
 
 }
+
+
+
